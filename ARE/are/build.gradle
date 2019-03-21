@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 
 ext {
-    PUBLISH_GROUP_ID = 'com.github.chinalwb'
+    PUBLISH_GROUP_ID = 'com.github.tangtaidvlp'
     PUBLISH_ARTIFACT_ID = 'are'
     PUBLISH_VERSION = '0.1.5'
 }
@@ -56,3 +56,6 @@ dependencies {
 
  apply from: 'https://raw.githubusercontent.com/blundell/release-android-library/master/android-release-aar.gradle'
 // ./gradlew clean build generateRelease
+apply plugin: 'com.android.library'
+
+group='com.github.tangtaidvlp'
