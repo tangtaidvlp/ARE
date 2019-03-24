@@ -5,6 +5,7 @@ import android.text.Editable;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.AbsoluteSizeSpan;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -101,17 +102,23 @@ public class ARE_FontSize extends ARE_ABS_Dynamic_Style<AreFontSizeSpan> impleme
 
 	@Override
 	public void onFontSizeChange(int fontSize) {
-		mIsChecked = true;
-		mSize = fontSize;
-		if (null != mEditText) {
-			Editable editable = mEditText.getEditableText();
-			int start = mEditText.getSelectionStart();
-			int end = mEditText.getSelectionEnd();
+		try {
+			mIsChecked = true;
+			mSize = fontSize;
+			if (null != mEditText) {
+				Editable editable = mEditText.getEditableText();
+				int start = mEditText.getSelectionStart();
+				int end = mEditText.getSelectionEnd();
 
-			if (end > start) {
-				applyNewStyle(editable, start, end, mSize);
+				if (end > start) {
+					applyNewStyle(editable, start, end, mSize);
+				}
 			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			Log.e("FUCKING EXCEPTION", "WE'RE OUT");
 		}
+
 	}
 
 	@Override

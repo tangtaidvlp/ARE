@@ -8,6 +8,7 @@ import android.graphics.Rect;
 import android.net.Uri;
 import android.text.Layout.Alignment;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -344,6 +345,17 @@ public class ARE_Toolbar extends LinearLayout {
 	 */
 	private ImageView mRteAtImage;
 
+	private OnClickListener onClickListener2 = null;
+
+	private OnClickListener onInsertImageButtonClickListener = new OnClickListener() {
+		@Override
+		public void onClick(View view) {
+			if (onClickListener2 != null) {
+				onClickListener2.onClick(view);
+			}
+		}
+	};
+
 	public ARE_Toolbar(Context context) {
 		this(context, null);
 	}
@@ -454,6 +466,8 @@ public class ARE_Toolbar extends LinearLayout {
 		this.mAlignCenter = new ARE_Alignment(this.mRteAlignCenter, Alignment.ALIGN_CENTER);
 		this.mAlignRight = new ARE_Alignment(this.mRteAlignRight, Alignment.ALIGN_OPPOSITE);
 		this.mImageStyle = new ARE_Image(this.mRteInsertImage);
+		Log.e("Init", "Run");
+		mImageStyle.setOnButtonClickListener(onInsertImageButtonClickListener);
 		this.mVideoStyle = new ARE_Video(this.mRteInsertVideo);
 		this.mAtStyle = new ARE_At();
 
@@ -811,4 +825,8 @@ public class ARE_Toolbar extends LinearLayout {
 	}
     /* -------- END: Keep it at the bottom of the class.. Keyboard and emoji ------------ */
     /* -------- END: Keep it at the bottom of the class.. Keyboard and emoji ------------ */
+
+	public void setOnInsertImageButtonClickListener (OnClickListener onClick) {
+		this.onClickListener2 = onClick;
+	}
 }

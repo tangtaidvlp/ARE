@@ -333,4 +333,8 @@ public class AREditor extends RelativeLayout {
         this.mAre.setImageStrategy(imageStrategy);
     }
 
+    public ARE_Toolbar getToolbar () {
+        return mToolbar;
+    }
+
 }

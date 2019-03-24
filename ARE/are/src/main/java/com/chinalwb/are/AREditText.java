@@ -81,6 +81,7 @@ public class AREditText extends AppCompatEditText {
 		}
 		init();
 		setupListener();
+		setupTextWatcher();
 	}
 
 	private void initGlobalValues() {
